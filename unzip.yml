@@ -1,0 +1,12 @@
+---
+ - name: learning zip through valut
+   hosts: sd
+   vars_files:
+     - mypass.yml 
+   tasks:
+    - name: copy to tmp 
+      copy:
+       src: /root/files.zip
+       dest: /tmp/files.zip
+    - name: unzip valut.zip
+      command:  unzip -o -P {{ password }} /root/files.zip -d /boss 
